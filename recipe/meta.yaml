@@ -19,6 +19,8 @@ build:
 requirements:
   host:
     - python >=3.7
+    - setuptools >=40.9.0
+    - wheel
     - pip
   run:
     - python >=3.7
