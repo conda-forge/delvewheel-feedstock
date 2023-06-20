@@ -1,5 +1,5 @@
 {% set name = "delvewheel" %}
-{% set version = "1.3.7" %}
+{% set version = "1.3.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/delvewheel-{{ version }}.tar.gz
-  sha256: fb46aed2d121c00687ff79c940ca6c7175bdc3d77c673175e69896dd06ec1ad7
+  sha256: 1fbc67d67f1fa2276ac53b5dd72fc79c9a7c521d85a7b35e9b97d67799c69988
 
 build:
   entry_points:
