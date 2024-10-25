@@ -1,5 +1,5 @@
 {% set name = "delvewheel" %}
-{% set version = "1.8.2" %}
+{% set version = "1.8.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,23 +7,22 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/delvewheel-{{ version }}.tar.gz
-  sha256: ef62ce2cc5c8925f94ac15b09f0158932489fa7eddc050055d59f11ffba70ffd
+  sha256: a37d6849120ff6ef1007a0bc75369860f58e1496b140b2b5a00b1b6432ecfe57
 
 build:
   entry_points:
     - delvewheel = delvewheel.__main__:main
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation 
   number: 0
 
 requirements:
   host:
-    - python >=3.7
-    - setuptools >=40.9.0
-    - wheel
+    - python >=3.8
+    - setuptools >=70.1.0
     - pip
   run:
-    - python >=3.7
+    - python >=3.8
     - pefile >=2024.8.26
 
 test:
