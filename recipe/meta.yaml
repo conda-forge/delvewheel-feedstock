@@ -1,5 +1,6 @@
+{% set python_min = python_min|default("3.8") %}
 {% set name = "delvewheel" %}
-{% set version = "1.8.3" %}
+{% set version = "1.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,22 +8,22 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/delvewheel-{{ version }}.tar.gz
-  sha256: a37d6849120ff6ef1007a0bc75369860f58e1496b140b2b5a00b1b6432ecfe57
+  sha256: 514a2fb37bdac7faf9bc54c5f811fb88ad5107aa67f1828931ff67e21366d4b2
 
 build:
   entry_points:
     - delvewheel = delvewheel.__main__:main
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation 
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools >=70.1.0
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - pefile >=2024.8.26
 
 test:
@@ -32,6 +33,7 @@ test:
     - pip check
     - delvewheel --help
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
