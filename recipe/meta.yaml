@@ -1,3 +1,4 @@
+{% set python_min = python_min|default("3.8") %}
 {% set name = "delvewheel" %}
 {% set version = "1.9.0" %}
 
@@ -18,11 +19,11 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools >=70.1.0
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - pefile >=2024.8.26
 
 test:
@@ -32,6 +33,7 @@ test:
     - pip check
     - delvewheel --help
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
