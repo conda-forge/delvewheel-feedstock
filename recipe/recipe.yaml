@@ -1,0 +1,55 @@
+schema_version: 1
+
+context:
+  version: "1.13.1"
+
+package:
+  name: delvewheel
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/d/delvewheel/delvewheel-${{ version }}.tar.gz
+  sha256: ae445f35f411c367f5b350431ac5f1435af8128bff31ccf34035a409704da8c6
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  python:
+    entry_points:
+      - delvewheel = delvewheel.__main__:main
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - setuptools >=77.0.3
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - pefile >=2024.8.26
+
+tests:
+  - python:
+      imports:
+        - delvewheel
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - delvewheel --help
+
+about:
+  summary: Self-contained wheels for Windows
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/adang1345/delvewheel
+  documentation: https://github.com/adang1345/delvewheel/blob/master/README.md
+
+extra:
+  recipe-maintainers:
+    - ocefpaf
