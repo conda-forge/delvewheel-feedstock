@@ -9,6 +9,8 @@ Package license: MIT
 
 Summary: Self-contained wheels for Windows
 
+Documentation: https://github.com/adang1345/delvewheel/blob/master/README.md
+
 Current build status
 ====================
 
