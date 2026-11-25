@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "1.13.2"
+  version: "1.13.3"
 
 package:
   name: delvewheel
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/d/delvewheel/delvewheel-${{ version }}.tar.gz
-  sha256: e04b40d8186d80d3ef74dc8571b5d15026b7a8858e89312692a2b09fbcc67b0e
+  sha256: 1275627b9dc1c89791323c5374edb44eb69d84253f73c0e89b8ba3a242eecb95
 
 build:
   number: 0
